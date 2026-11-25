@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type in Japanese</title>
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <meta name="description" content="Improve your Japanese typing skills with vocabulary-based levels! Complete 10 typing challenges, track your completion time, and review each word with its English meaning to build your Japanese vocabulary.">
+    <link href="style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg"></div>
+    <div id="container">
+        <h1>Type in Japanese</h1>
+        <div id="js-opening" class="opening">
+            <h2 id="js-title" class="title">Select Your Level</h2>
+            <p class="level_explanation">
+                These levels are based on the vocabulary level. Higher level means the words you will type are higher level vocabulary, not more difficult to type.
+            </p>
+            <ul class="level_select">
+                <li class="js-level" data-level="L0">Entry</li>
+                <li class="js-level" data-level="L1">Level 1</li>
+                <li class="js-level" data-level="L2">Level 2</li>
+                <li class="js-level" data-level="L3">Level 3</li>
+                <li class="js-level" data-level="L4">Level 4</li>
+                <li class="js-level" data-level="L5">Level 5</li>
+                <li class="js-level" data-level="L6">Level 6</li>
+                <li class="js-level" data-level="L7">Advanced</li>
+            </ul>
+            <div class="select_finalize">
+                <button id="js-start">Start</button>
+                <button id="js-clear">Clear</button>
+            </div>
+        </div>
+        <div id="js-qa" class="qa">
+            <div id="js-choosenLevel" class="choosen_level"></div>
+            <div class="question_text">
+                <p id="js-questionNumber" class="question_number"></p>
+                <p id="js-question" class="question"></p>
+                <p id="js-kana" class="kana"></p>
+            </div>
+            <input type="text" id="js-answer" class="answer">
+        </div>
+        <div id="js-result" class="result">
+            <div class="time_wrapper">
+                <div id="js-time" class="time">00:00:00</div>
+            </div>
+            <div id="js-answers" class="answers"></div>
+            <div class="buttons">
+                <button id="js-retry">Try other 10 questions</button>
+                <button id="js-retake">Try same questions</button>
+                <button id="js-toHome">Home</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
