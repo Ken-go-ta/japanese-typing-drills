@@ -17,6 +17,10 @@
 </head>
 <body>
     <div class="bg"></div>
+    <div id="js-openingMessage" class="opening_message">
+        Type fast<br>
+        Talk more
+    </div>
     <div id="container">
         <h1>Type in Japanese</h1>
         <div id="js-opening" class="opening">
@@ -47,6 +51,16 @@
                 <p id="js-kana" class="kana"></p>
             </div>
             <input type="text" id="js-answer" class="answer">
+            <div id="js-progressBarWrapper" class="progress_bar_wrapper">
+                <!-- <div class="current_progress">
+                    <span id="js-progressNumber" class="progress_number"></span>  
+                    <span id="js-totalQuestion" class="total_question">
+                    </span>
+                </div> -->
+                <div id="js-progressBar" class="progress_bar">
+                    <div id="js-progress" class="progress"></div>
+                </div>
+            </div>
         </div>
         <div id="js-result" class="result">
             <div class="time_wrapper">
