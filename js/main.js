@@ -30,6 +30,29 @@ const result = document.querySelector('#js-result');
 const questionNumber = document.querySelector('#js-questionNumber');
 const levelBadge = document.querySelector('#js-choosenLevel');
 const h1 = document.querySelector('h1');
+// const totalQuestion = document.querySelector('#js-totalQuestion');
+// const progressNumber = document.querySelector('#js-progressNumber');
+const progress = document.querySelector("#js-progress");
+const container = document.querySelector('#container');
+const openingMessage = document.querySelector('#js-openingMessage');
+
+window.addEventListener('load', () => {
+    openingMessage.animate({
+        opacity: [0, 1, 0],
+    }, {
+        duration: 3200,
+        easing: 'ease-out',
+        fill: 'forwards',
+    });
+    container.animate({
+        opacity: [0, 1],
+    }, {
+        duration: 800,
+        delay: 2700,
+        easing: 'ease-out',
+        fill: 'forwards',
+    });
+});
 
 h1.addEventListener('click', () => location.reload());
 
@@ -58,7 +81,7 @@ function getRandomQuestions(questions, count = 10) {
     return shuffleArray(questions).slice(0, count);
 }
 
-let currectQuestion = 0;
+let currentQuestion = 0;
 let isComposing = false;
 let isGameActive = false;
 
@@ -81,6 +104,7 @@ const reloadPage = () => {
 
 
 clearButton.disabled = true;
+const numberOfQuestions = 10;
 
 startButton.disabled = true;
 levelButtons.forEach(button => {
@@ -89,7 +113,7 @@ levelButtons.forEach(button => {
         clearButton.disabled = false;
         selectedLevel = button.dataset.level;
         selectedLevelName = button.textContent;
-        selectedQuestions = getRandomQuestions(questionSets[selectedLevel]);
+        selectedQuestions = getRandomQuestions(questionSets[selectedLevel], numberOfQuestions);
         levelButtons.forEach((button) => {
             button.style.opacity = .5;
         });
@@ -109,9 +133,11 @@ clearButton.addEventListener('click', () => {
 
 function setQuestion() {
     questionNumber.classList.remove('hidden');
-    questionNumber.textContent = `Q${currectQuestion + 1}`
-    question.textContent = selectedQuestions[currectQuestion].question;
-    kana.textContent = selectedQuestions[currectQuestion].kana;
+    questionNumber.textContent = `Q${currentQuestion + 1}`;
+    question.textContent = selectedQuestions[currentQuestion].question;
+    kana.textContent = selectedQuestions[currentQuestion].kana;
+    // totalQuestion.textContent = '1';
+    progress.style.width = `${currentQuestion * 10}%`;
 }
 
 const hideQA = () => {
@@ -143,7 +169,7 @@ openingScreen();
 
 
 const startGame = () => {
-    currectQuestion = 0;
+    currentQuestion = 0;
     isComposing = false;
     isGameActive = true;
 
@@ -168,6 +194,7 @@ const startGame = () => {
     answer.value = '';
     answer.focus();
     levelBadge.textContent = selectedLevelName;
+    progressNumber.textContent = currentQuestion + 1;
 }
 
 startButton.addEventListener('click', startGame);
@@ -203,11 +230,11 @@ answer.addEventListener('input', (event) => {
 function checkAnswer() {
     if (!isGameActive || isComposing) return;
     const typedAnswer = answer.value;
-    const currentQuestion = selectedQuestions[currectQuestion];
-    if (!currentQuestion) return;
-    if (typedAnswer === currentQuestion.question) {
-        currectQuestion++;
-        if (currectQuestion === 10) {
+    const currentQuestionData = selectedQuestions[currentQuestion];
+    if (!currentQuestionData) return;
+    if (typedAnswer === currentQuestionData.question) {
+        currentQuestion++;
+        if (currentQuestion === numberOfQuestions) {
             // ゲーム終了
             isGameActive = false;
             endTime = performance.now();
@@ -238,13 +265,15 @@ function checkAnswer() {
             // 次の問題へ
             answer.value = '';
             setQuestion();
-
+            // progressNumber.textContent = currentQuestion + 1;
+            // progress.style.width = `${(currentQuestion + 1) * 10}%`;
+        
         }
     }
 }
 
 retryButton.addEventListener('click', () => {
-    selectedQuestions = getRandomQuestions(questionSets[selectedLevel]);
+    selectedQuestions = getRandomQuestions(questionSets[selectedLevel], numberOfQuestions);
     startGame(); 
 });
 
