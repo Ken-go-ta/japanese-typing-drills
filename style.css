@@ -20,6 +20,7 @@ body {
     color: #494232;
     font-family: "Manrope", sans-serif;
     background-color: #fffbf4;
+    min-height: 100vh;
 }
 
 img,
