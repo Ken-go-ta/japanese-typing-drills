@@ -30,8 +30,6 @@ const result = document.querySelector('#js-result');
 const questionNumber = document.querySelector('#js-questionNumber');
 const levelBadge = document.querySelector('#js-choosenLevel');
 const h1 = document.querySelector('h1');
-// const totalQuestion = document.querySelector('#js-totalQuestion');
-// const progressNumber = document.querySelector('#js-progressNumber');
 const progress = document.querySelector("#js-progress");
 const container = document.querySelector('#container');
 const openingMessage = document.querySelector('#js-openingMessage');
@@ -136,7 +134,6 @@ function setQuestion() {
     questionNumber.textContent = `Q${currentQuestion + 1}`;
     question.textContent = selectedQuestions[currentQuestion].question;
     kana.textContent = selectedQuestions[currentQuestion].kana;
-    // totalQuestion.textContent = '1';
     progress.style.width = `${currentQuestion * 10}%`;
 }
 
@@ -261,13 +258,9 @@ function checkAnswer() {
             retakeButton.classList.remove('hidden');
             toHomeButton.classList.remove('hidden');
         } else {
-
             // 次の問題へ
             answer.value = '';
             setQuestion();
-            // progressNumber.textContent = currentQuestion + 1;
-            // progress.style.width = `${(currentQuestion + 1) * 10}%`;
-        
         }
     }
 }
