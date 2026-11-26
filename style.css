@@ -301,20 +301,9 @@ button:active {
     align-items: center;
     justify-content: center;
     width: 200px;
-    /* margin: 10px 0 0; */
     border-radius: 10px;
     gap: 10px;
 }
-
-/* .total_question {
-    font-weight: 700;
-    font-size: 12px;
-}
-
-.progress_number {
-    font-weight: 600;
-    font-size: 24px;
-} */
 
 .progress_bar {
     position: relative;
@@ -342,10 +331,11 @@ button:active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 40px;
+    font-size: 32px;
     font-weight: 600;
     font-family: "Special Elite", system-ui;
     line-height: 3.3rem;
+    text-align: center;
 }
 
 
