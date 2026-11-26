@@ -90,6 +90,7 @@ h1 {
     border-right: 2px solid #494232;
     min-height: 100vh;
     position: relative;
+    opacity: 0;
 }
 
 .opening {
@@ -156,7 +157,7 @@ button:disabled {
 button {
     height: 50px;
     padding: 0 30px;
-    border: 2px solid #333;
+    border: 2px solid #494232;
     border-radius: 25px;
     background-color: #dec69d;
     color: #fff;
@@ -165,7 +166,7 @@ button {
     cursor: pointer;
     color: #494232;
     font-weight: 700;
-    box-shadow: 0 3px 0 #333;
+    box-shadow: 0 3px 0 #494232;
 }
 
 button:active {
@@ -293,6 +294,60 @@ button:active {
     font-size: 14px;
     font-family: "Manrope", sans-serif;
 }
+
+
+.progress_bar_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    /* margin: 10px 0 0; */
+    border-radius: 10px;
+    gap: 10px;
+}
+
+/* .total_question {
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.progress_number {
+    font-weight: 600;
+    font-size: 24px;
+} */
+
+.progress_bar {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    border-radius: 1000px;
+    background-color: #e3dfda;
+    border: 1px solid #e3dfda;
+}
+
+.progress {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 0;
+    height: 4px;
+    border-radius: 1000px;
+    background-color: #494232;
+}
+
+.opening_message {
+    position: fixed;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    font-weight: 600;
+    font-family: "Special Elite", system-ui;
+    line-height: 3.3rem;
+}
+
 
 @media (max-width: 540px) {
     #container {
